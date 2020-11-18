@@ -1,0 +1,63 @@
+(1)
+func plusone(array : [Int]) -> Int{
+    var array = array
+    var sum = 0
+    for i in 0 ..< array.count {
+        sum += array[i]
+    }
+    return sum
+}
+
+var oldArray = [1,2,3,4,5,6,7,8,9,10]
+print(oldArray)
+var total = plusone(array: oldArray)
+print(total)
+
+
+(2)
+func plusone(array : [Int]) -> Double{
+    var array = array
+    var sum = 0
+    for i in 0 ..< array.count {
+        sum = sum + array[i]
+    }
+    var average = Double(sum) / Double(array.count)
+    return average
+}
+
+var oldArray = [1,2,3,4]
+print(oldArray)
+var ave = plusone(array: oldArray)
+print(ave)
+
+
+(3)
+func plusone(array : [Int]) -> Double{
+    var array = array
+    var sum = 0
+    for i in 0 ..< array.count {
+        sum = sum + array[i]
+    }
+    //ここまで合計
+
+    var average = Double(sum) / Double(array.count)
+    //ここまで平均
+
+    //ここから分散
+    var newArray :[Double] = []
+    for i in 0 ..< array.count {
+        newArray.append(((Double(array[i]) - average)*(Double(array[i]) - average)))
+    }
+    var sum2 = 0.0
+    for i in 0 ..< newArray.count {
+        sum2 = sum2 + newArray[i]
+    }
+    var dispersion = sum2 / Double(newArray.count)
+    return dispersion
+}
+
+var oldArray = [1,2,3,4]
+//元のリストの表示
+print(oldArray)
+var dis = plusone(array: oldArray)
+print(dis)
